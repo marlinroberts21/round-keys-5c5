@@ -1,0 +1,63 @@
+#!/usr/local/bin/python3
+
+import sys, getopt, random
+
+def main(argv):
+    # print ('Number of arguments:', len(argv), 'arguments.')
+    # print ('Argument List:', str(argv))
+
+    # argvs = sys.argv[1:]
+
+    adjectFile = ''
+    nounFile = ''
+
+    try:
+        opts, args = getopt.getopt(argv,"a:n:")
+    except getopt.GetoptError:
+        print ("Error parsing arguments. Usage:")
+        print ('pyArgTest1.py -a <adjectFile> -n <nounFile>')
+        sys.exit()
+
+    for opt, arg in opts:
+        if opt in ("-a"):
+            adjectFile = arg
+        if opt in ("-n"):
+            nounFile = arg
+            
+    if adjectFile == '' or nounFile == '':
+        print ("Missing argument. Usage:")
+        print ('pyArgTest1.py -a <adjectFile> -n <nounFile>')
+        sys.exit()
+        
+    # print (opts)
+    # print (args)
+    # print ('adject File: ', adjectFile)
+    # print ('Noun File: ', nounFile)
+    
+    adjectList = []
+    nounList = []   
+    
+    with open(adjectFile, encoding="utf-8") as f:
+        fullfile = f.readlines()
+        for line in fullfile:
+            adjectList.append(line.strip())
+
+    with open(nounFile, encoding="utf-8") as f:
+        fullfile = f.readlines()
+        for line in fullfile:
+            nounList.append(line.strip())
+    
+    # print(adjectList)
+    # print(nounList)
+    
+    nounStr = random.choice(nounList)
+    adjectStr = random.choice(adjectList)
+    suffixInt = random.randint(1024,4096)
+    
+    print(f'{adjectStr.lower()}-{nounStr.lower()}-{hex(suffixInt).removeprefix("0x")}')
+    print(f'{adjectStr.lower()}-{nounStr.lower()}-{oct(suffixInt).removeprefix("0o")}')
+    print(f'{adjectStr.lower()}-{nounStr.lower()}-{bin(suffixInt).removeprefix("0b")}')
+    
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
