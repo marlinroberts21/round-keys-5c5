@@ -3,6 +3,13 @@
 import sys, getopt, random
 
 def main(argv):
+    """
+    Summary:
+        Generates project names in an adjective-noun-number format.
+    Args:
+        argv (str []): command line arguments.
+        -a <adjectiveFile> -n <nounFile.
+    """    
     # print ('Number of arguments:', len(argv), 'arguments.')
     # print ('Argument List:', str(argv))
 
