@@ -1,6 +1,7 @@
 #!/usr/local/bin/python3
 
 import sys, getopt, random
+from typing import List
 
 def main(argv):
     """
@@ -41,9 +42,7 @@ def main(argv):
     # print ('adject File: ', adjectFile)
     # print ('Noun File: ', nounFile)
     
-    adjectList = []
-    nounList = []   
-    
+    """
     with open(adjectFile, encoding="utf-8") as f:
         fullfile = f.readlines()
         for line in fullfile:
@@ -53,6 +52,31 @@ def main(argv):
         fullfile = f.readlines()
         for line in fullfile:
             nounList.append(line.strip())
+     """       
+    
+    """ 
+    def load_list(file_name):
+        tmp_list = []
+        with open(file_name, encoding="utf-8") as f:
+            fullfile = f.readlines()
+        for line in fullfile:
+            tmp_list.append(line.strip())
+        return tmp_list
+    """
+    #adjectList = load_list(adjectFile)
+    #nounList = load_list(nounFile)  
+    
+    def loadList(fileName: str, listObject: List):
+        with open(fileName, encoding="utf-8") as f:
+            fullFile = f.readlines()
+        for line in fullFile:
+            listObject.append(line.strip())
+
+    adjectList = []
+    nounList = []
+    
+    loadList(adjectFile, adjectList)
+    loadList(nounFile, nounList)   
     
     # print(adjectList)
     # print(nounList)
