@@ -85,10 +85,14 @@ def main(argv):
     adjectStr = random.choice(adjectList)
     suffixInt = random.randint(1024,4096)
     
-    print(f'{adjectStr.lower()}-{nounStr.lower()}-{hex(suffixInt).removeprefix("0x")}')
-    print(f'{adjectStr.lower()}-{nounStr.lower()}-{oct(suffixInt).removeprefix("0o")}')
-    print(f'{adjectStr.lower()}-{nounStr.lower()}-{bin(suffixInt).removeprefix("0b")}')
+    finalStr = (f'{adjectStr.lower()}-{nounStr.lower()}-{hex(suffixInt).removeprefix("0x")}')
+    print(finalStr)
+    #print(f'{adjectStr.lower()}-{nounStr.lower()}-{hex(suffixInt).removeprefix("0x")}')
+    #print(f'{adjectStr.lower()}-{nounStr.lower()}-{oct(suffixInt).removeprefix("0o")}')
+    #print(f'{adjectStr.lower()}-{nounStr.lower()}-{bin(suffixInt).removeprefix("0b")}')
     
+
+    return finalStr
 
 if __name__ == "__main__":
     main(sys.argv[1:])
