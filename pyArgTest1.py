@@ -9,7 +9,7 @@ def main(argv):
         Generates project names in an adjective-noun-number format.
     Args:
         argv (str []): command line arguments.
-        -a <adjectiveFile> -n <nounFile.
+        -a <adjectiveFile> -n <nounFile>
     """    
     # print ('Number of arguments:', len(argv), 'arguments.')
     # print ('Argument List:', str(argv))
@@ -66,7 +66,15 @@ def main(argv):
     #adjectList = load_list(adjectFile)
     #nounList = load_list(nounFile)  
     
-    def loadList(fileName: str, listObject: List):
+    def loadList(fileName: str, listObject: List[str]):
+        """
+        Summary:
+            Loads a list of words from a file into a given list.
+
+        Args:
+            fileName (str): Name of file to load.
+            listObject (List): List to hold words.
+        """        
         with open(fileName, encoding="utf-8") as f:
             fullFile = f.readlines()
         for line in fullFile:
