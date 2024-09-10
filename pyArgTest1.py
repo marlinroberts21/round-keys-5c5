@@ -26,8 +26,9 @@ def main(argv):
         argv (str []): command line arguments.
         -a <adjectiveFile> -n <nounFile>
     """    
-
-    adjectFile = ''
+    
+    
+    adjectFile = '' 
     nounFile = ''
 
     try:
