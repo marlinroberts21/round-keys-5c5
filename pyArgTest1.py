@@ -27,7 +27,7 @@ def main(argv):
         -a <adjectiveFile> -n <nounFile>
     """    
     
-    
+    # test comment
     adjectFile = '' 
     nounFile = ''
 
